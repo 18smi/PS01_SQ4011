@@ -1,16 +1,9 @@
-input_string = input("greeting please\n")
-reward = 100
-is_hello = 5
+input_string = input("greeting please\n").lower().replace(' ', '')[:5]
+# removes all spaces, makes the string lowercase and saves the first 5 letters to input_string
 
-for i in input_string:
-    if i == ' ':
-        continue
-    elif ((i == 'h' or i == 'H') and reward == 100) or ((i == 'e' or i == 'e') and is_hello == 4) or ((i == 'l' or i == 'l') and is_hello == 3) or ((i == 'l' or i == 'l') and is_hello == 2):
-        reward = 20
-        is_hello -= 1
-    elif (i == 'o' or i == 'o') and is_hello == 1:
-        reward = 0
-    else:
-        break
-
-print(reward)
+if input_string == "hello":
+    print("$0")
+elif input_string[0] == 'h':
+    print("$20")
+else:
+    print("$100")

@@ -1,14 +1,19 @@
-input_string = input("input please\n")
-media_type_string = ""
-media_type_found = False
+input_string = input("input please\n").lower()
+start_index = input_string.find('.')
 
-for i in input_string:
-    if i == '.':
-        media_type_found = True
-    if media_type_found:
-        media_type_string += i.lower()
 
-if media_type_found == False:
+if start_index == -1:
     print("application/octet-stream")
 else:
-    print(media_type_string)
+    if input_string[start_index:] == ".jpg" or input_string[start_index:] == ".jpeg":
+        print("image/jpeg")
+    elif input_string[start_index:] == ".png":
+        print("image/png")
+    elif input_string[start_index:] == ".gif":
+        print("image/gif")
+    elif input_string[start_index:] == ".zip":
+        print("application/zip")
+    elif input_string[start_index:] == ".pdf":
+        print("application/pdf")
+    elif input_string[start_index:] == ".txt":
+        print("text/plain")

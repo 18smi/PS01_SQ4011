@@ -1,25 +1,25 @@
-input_string = input("maths\n") + '\0'
-a = 0
+input_string = input("maths\n").strip()
+
+# finds the operator used
 operation = ''
-b = 0
+if input_string.find('+') != -1:
+    operation = '+'
+elif input_string.find('-') != -1:
+    operation = '-'
+elif input_string.find('*') != -1:
+    operation = '*'
+elif input_string.find('/') != -1:
+    operation = '/'
 
-i = 0
-while input_string[i] != ' ':
-    a = a * 10 + int(input_string[i])
-    i += 1
-i += 1
-operation = input_string[i]
-i += 2
-while input_string[i] != '\0':
-    b = b * 10 + int(input_string[i])
-    i += 1
+# splits the equasion into its componant numbers
+numbers = input_string.split(operation)
 
-
+# does the operation to the numbers
 if operation == '+':
-    print(float(a + b))
-if operation == '-':
-    print(float(a - b))
-if operation == '*':
-    print(float(a * b))
-if operation == '/':
-    print(float(a / b))
+    print(float(int(numbers[0]) + int(numbers[1])))
+elif operation == '-':
+    print(float(int(numbers[0]) - int(numbers[1])))
+elif operation == '*':
+    print(float(int(numbers[0]) * int(numbers[1])))
+elif operation == '/':
+    print(float(int(numbers[0]) / int(numbers[1])))
